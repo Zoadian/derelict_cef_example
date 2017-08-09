@@ -48,7 +48,7 @@ int myWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int
 	initialize_cef_app(&app);
 
 	// Execute subprocesses
-	int exit_code = cef_execute_process(&main_args, null, null);
+	int exit_code = cef_execute_process(&main_args, &app, null);
 	if (exit_code >= 0) {
 		return exit_code;
 	}
@@ -75,13 +75,14 @@ int myWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int
 
 	string _windowName = `CEF WORKING`;
 	cef_string_t cef_window_name = {};
-	cef_string_utf8_to_utf16(_windowName.ptr, strlen(_windowName.ptr), &cef_window_name);
+	cef_string_utf8_to_utf16(_windowName.ptr, _windowName.length, &cef_window_name);
 	window_info.window_name = cef_window_name;
 
 	// Initial url
-	string _url = `https://www.google.com/ncr`;
+	// string _url = `https://www.google.com/ncr`;
+	string _url = `zoadian.de`;
 	cef_string_t cef_url = {};
-	cef_string_utf8_to_utf16(_url.ptr, strlen(_url.ptr), &cef_url);
+	cef_string_utf8_to_utf16(_url.ptr, _url.length, &cef_url);
 
 	cef_browser_settings_t browser_settings = {};
 	browser_settings.size = cef_browser_settings_t.sizeof;
@@ -93,8 +94,7 @@ int myWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int
 
 	// Create browser asynchronously. There is also a
 	// synchronous version of this function available.
-	printf("cef_browser_host_create_browser\n");
-	cef_browser_host_create_browser(&window_info, &client, &cef_url, &browser_settings, null);
+	cef_browser_host_create_browser_sync(&window_info, &client, &cef_url, &browser_settings, null);
 
 	cef_run_message_loop();
 	cef_shutdown();
