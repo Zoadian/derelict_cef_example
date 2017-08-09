@@ -27,5 +27,5 @@
 	"copyFiles-windows-x86_64": [
 		"dep/libcef_64.dll"
 	],
-	"versions": ["DerelictCEF_UTF8Strings"]
+	"versions": ["DerelictCEF_UTF16Strings"]
 }

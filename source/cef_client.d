@@ -4,9 +4,9 @@ import core.stdc.stdio;
 import core.stdc.stdlib;
 
 import cef_base;
-
 extern(Windows) {
-	cef_life_span_handler_t g_life_span_handler;
+
+	extern cef_life_span_handler_t g_life_span_handler;
 
 	cef_context_menu_handler_t* get_context_menu_handler(cef_client_t* self) nothrow @nogc {
 		// DEBUG_CALLBACK("get_context_menu_handler\n");

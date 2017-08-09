@@ -12,7 +12,7 @@ extern(Windows) {
 		//       loop only when last browser is closed. Otherwise
 		//       closing a popup window will exit app while main
 		//       window shouldn't be closed.
-		// cef_quit_message_loop(); // @todo: ??!
+		cef_quit_message_loop();
 	}
 
 	void initialize_cef_life_span_handler(cef_life_span_handler_t* handler) {
