@@ -1,0 +1,31 @@
+{
+	"name": "cef_test",
+	"authors": [
+		"Zoadian"
+	],
+	"sourceFiles": [
+        "./main.def"
+    ],
+	"dependencies": {
+		"derelict-cef": "~>0.0.3"
+	},
+	"description": "cef tester",
+	"copyright": "Copyright © 2017, Zoadian",
+	"license": "proprietary",
+	"targetPath": "bin",
+	"copyFiles-windows-x86": [
+		"dep/cef/Debug/d3dcompiler_43.dll",
+		"dep/cef/Debug/d3dcompiler_47.dll",
+		"dep/cef/Debug/libcef.dll",
+		"dep/cef/Debug/libEGL.dll",
+		"dep/cef/Debug/libGLESv2.dll",
+		"dep/cef/Debug/widevinecdmadapter.dll",
+		"dep/cef/Debug/natives_blob.bin",
+		"dep/cef/Debug/snapshot_blob.bin",
+		"dep/cef/Resources/*"
+	],
+	"copyFiles-windows-x86_64": [
+		"dep/libcef_64.dll"
+	],
+	"versions": ["DerelictCEF_UTF8Strings"]
+}
